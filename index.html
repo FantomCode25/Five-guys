@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Crop Recommendation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    h1 {
+      text-align: center;
+      color: green;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eee;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Crop Recommendation</h2>
+  </header>
+
+  <div class="container">
+    <h1>Enter Soil Details</h1>
+
+    <form action="/predict" method="POST">
+      <label for="Nitrogen">Nitrogen:</label>
+      <input type="number" id="Nitrogen" name="Nitrogen" required>
+
+      <label for="Phosporus">Phosphorus:</label>
+      <input type="number" id="Phosporus" name="Phosporus" required>
+
+      <label for="Potassium">Potassium:</label>
+      <input type="number" id="Potassium" name="Potassium" required>
+
+      <label for="Temperature">Temperature (°C):</label>
+      <input type="number" step="0.01" id="Temperature" name="Temperature" required>
+
+      <label for="Humidity">Humidity (%):</label>
+      <input type="number" step="0.01" id="Humidity" name="Humidity" required>
+
+      <label for="Ph">pH value:</label>
+      <input type="number" step="0.01" id="Ph" name="Ph" required>
+
+      <label for="Rainfall">Rainfall (mm):</label>
+      <input type="number" step="0.01" id="Rainfall" name="Rainfall" required>
+
+	  <label for="Location">Location:</label>
+      <input list="location-suggestions" id="Location" name="Location" required>
+      <datalist id="location-suggestions"></datalist>
+
+      <button type="submit">Get Recommendation</button>
+    </form>
+
+    
+    <!-- <div class="result">
+      <strong>Recommended Crop:</strong> {{ result }}
+    </div>
+    {% endif %}
+  </div> -->
+
+</body>
+</html>
+<script>
+    const locations = [
+      "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+      "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
+      "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+      "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab",
+      "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
+      "Uttar Pradesh", "Uttarakhand", "West Bengal"
+    ];
+  
+    const datalist = document.getElementById("location-suggestions");
+  
+    locations.forEach(location => {
+      const option = document.createElement("option");
+      option.value = location;
+      datalist.appendChild(option);
+    });
+  </script>
