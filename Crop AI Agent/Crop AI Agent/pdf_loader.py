@@ -14,7 +14,8 @@ def build_vector_index():
         "Crop-Physiology.pdf",
         "Introduction-to-Soil-Science.pdf",
         "Introductory-Agriculture.pdf",
-        "Soil-Chemistry-Soil-Fertility-Nutrient-Management.pdf"
+        "Soil-Chemistry-Soil-Fertility-Nutrient-Management.pdf",
+        "100-agricultureQuestions.pdf"
     ]
     
     # Verify files exist with absolute paths
